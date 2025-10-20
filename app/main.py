@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.api.routes import router
+from app.api.predict_route import router as predict_router
 from app.core.logger import logger
 from app.core.config import API_TITLE, API_DESCRIPTION, API_VERSION, ENVIRONMENT
 
@@ -8,7 +8,8 @@ app = FastAPI(title=API_TITLE, description=API_DESCRIPTION, version= API_VERSION
 # Log startup information
 logger.info(f"Starting application in {ENVIRONMENT} mode...")
 
-app.include_router(router, prefix="/api", tags=["prediction"])
+# Register the prediction route
+app.include_router(predict_router, prefix="/api")
 
 @app.get("/")
 

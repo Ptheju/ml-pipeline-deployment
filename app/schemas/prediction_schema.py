@@ -1,9 +1,10 @@
 from pydantic import BaseModel
 
-class PredictionRequest(BaseModel):
-    feature1: float
-    feature2: float
-    feature3: float 
+class LoanApplication(BaseModel):
+    Income: float
+    Credit_Score: float
+    Loan_Amount: float
+    DTI_Ratio: float
+    Employment_Status: str
 
-class PredictionResponse(BaseModel):
-    prediction: float
+
